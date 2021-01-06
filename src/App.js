@@ -1,15 +1,25 @@
+import React, { Component } from 'react'
+
 import Header from './components/Header'
-import Button from './components/Button'
+import ButtonArea from './components/ButtonArea'
 import WeatherCard from './components/WeatherCard'
 
-function App() {
-  return (
-    <div>
-      <Header/>
-      <Button/>
-      <WeatherCard/>
-    </div>
-  );
+
+export default class App extends Component {
+
+  getLocalWeather = () => {
+    console.log("getLocalWeather function reached")
+  }
+
+  render() {
+    return (
+      <div>
+        <Header/>
+        <ButtonArea getLocalWeather={this.getLocalWeather}/>
+        <WeatherCard/>
+      </div>
+    )
+  }
 }
 
-export default App;
+
