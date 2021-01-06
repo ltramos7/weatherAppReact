@@ -11,7 +11,8 @@ export default class App extends Component {
     super()
     this.state = {
       latitude: "",
-      longitude:""
+      longitude:"",
+      localWeather: {}
     }
   }
 
@@ -41,20 +42,23 @@ export default class App extends Component {
   }
 
   fetchLocationWeather = (latitude, longitude) => {
-    console.log("fetch location info function:", latitude, longitude)
+
     fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=aa662ed0d71b09fd88e5880bc7bf3617`)
     .then(resp => resp.json() )
-    .then(data => console.log(data))
-    // .then(data => renderLocationInfo(data))
+    .then(data => {
+      this.setState({
+        localWeather: data
+      })
+    })
   }
 
   render() {
-    console.log("long: ", this.state.longitude, "lat: ", this.state.latitude)
+    
     return (
       <div>
         <Header/>
         <ButtonArea getLocalWeather={this.getLocalWeather}/>
-        <WeatherCard/>
+        <WeatherCard localWeather={this.state.localWeather}/>
       </div>
     )
   }
