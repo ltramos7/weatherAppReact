@@ -8,7 +8,23 @@ import WeatherCard from './components/WeatherCard'
 export default class App extends Component {
 
   getLocalWeather = () => {
-    console.log("getLocalWeather function reached")
+
+    const successCallback = (position) => {
+      const latitude = position.coords.latitude
+      const longitude = position.coords.longitude
+      console.log("lat: ", latitude, "long: ", longitude);
+      // fetchLocationWeather(latitude, longitude)
+    }
+  
+    const errorCallback = () => {
+        console.log("Unable to retrieve your location.")
+    }
+
+    if(!navigator.geolocation){
+      console.log("Geolocation is not supported by your browswer.");
+    } else {
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+    }
   }
 
   render() {
