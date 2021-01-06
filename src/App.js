@@ -7,12 +7,25 @@ import WeatherCard from './components/WeatherCard'
 
 export default class App extends Component {
 
+  constructor(){
+    super()
+    this.state = {
+      latitude: "",
+      longitude:""
+    }
+  }
+
   getLocalWeather = () => {
 
     const successCallback = (position) => {
       const latitude = position.coords.latitude
       const longitude = position.coords.longitude
-      console.log("lat: ", latitude, "long: ", longitude);
+
+      this.setState({
+        latitude: latitude,
+        longitude: longitude
+      })
+      // console.log("lat: ", latitude, "long: ", longitude);
       // fetchLocationWeather(latitude, longitude)
     }
   
@@ -28,6 +41,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log("long: ", this.state.longitude, "lat: ", this.state.latitude)
     return (
       <div>
         <Header/>
