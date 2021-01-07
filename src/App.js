@@ -12,22 +12,22 @@ export default class App extends Component {
     this.state = {
       latitude: "",
       longitude:"",
-      localWeather: {}
+      localWeatherInfo: {},
+      localTime: []
     }
   }
 
-  getLocalWeather = () => {
+  getCurrentWeather = () => {
 
     const successCallback = (position) => {
-      const latitude = position.coords.latitude
-      const longitude = position.coords.longitude
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
 
-      this.setState({
-        latitude: latitude,
-        longitude: longitude
-      })
-      // console.log("lat: ", latitude, "long: ", longitude);
-      this.fetchLocationWeather(this.state.latitude, this.state.longitude)
+    this.setState({
+      latitude: latitude,
+      longitude: longitude
+    })
+    this.fetchLocationWeather(this.state.latitude, this.state.longitude)
     }
     
     const errorCallback = () => {
@@ -47,18 +47,31 @@ export default class App extends Component {
     .then(resp => resp.json() )
     .then(data => {
       this.setState({
-        localWeather: data
+        localWeatherInfo: data,
+        localTime: data.dt
       })
+      this.getLocalTime(data.dt)
+    })
+  }
+
+  getLocalTime = (time) => {
+    let today = new Date(time*1000)
+    let [month, day, year] = today.toLocaleDateString("en-US").split("/")
+    let hour = today.getHours()
+    let minute = today.getMinutes()
+
+    this.setState({
+      localTime: [month, day, year, hour, minute]
     })
   }
 
   render() {
-    
+    console.log("local time: ", this.state.localTime)
     return (
       <div>
         <Header/>
-        <ButtonArea getLocalWeather={this.getLocalWeather}/>
-        <WeatherCard localWeather={this.state.localWeather}/>
+        <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime}/>
+        <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime}/>
       </div>
     )
   }
