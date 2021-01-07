@@ -13,7 +13,8 @@ export default class App extends Component {
       latitude: "",
       longitude:"",
       localWeatherInfo: {},
-      localTime: []
+      localTime: [],
+      status: false
     }
   }
 
@@ -61,7 +62,8 @@ export default class App extends Component {
     let minute = today.getMinutes()
 
     this.setState({
-      localTime: [month, day, year, hour, minute]
+      localTime: [month, day, year, hour, minute],
+      status: true
     })
   }
 
@@ -71,7 +73,7 @@ export default class App extends Component {
       <div>
         <Header/>
         <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime}/>
-        <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime}/>
+        {this.state.status ? <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime}/> : null}
       </div>
     )
   }
