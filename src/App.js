@@ -14,11 +14,16 @@ export default class App extends Component {
       longitude:"",
       localWeatherInfo: {},
       localTime: [],
-      weatherCardStatus: false
+      weatherCardStatus: false,
+      loadingStatus: false
     }
   }
 
   getCurrentWeather = () => {
+
+    this.setState({
+      loadingStatus: true
+    })
 
     const successCallback = (position) => {
     const latitude = position.coords.latitude
@@ -73,6 +78,7 @@ export default class App extends Component {
       <div>
         <Header/>
         <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime}/>
+        {this.state.loadingStatus ? <p>Loading...</p> : null}
         {this.state.weatherCardStatus ? <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime}/> : null}
       </div>
     )
