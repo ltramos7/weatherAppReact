@@ -9,7 +9,7 @@ export default class WeatherCard extends Component {
         return (
             <div id="local-weather-info-container">
                 <h2 id="city-location">{this.props.localWeatherInfo.name}</h2>
-                <p id="current-time">as of {this.props.localTime[3]}:{this.props.localTime[4]} - {this.props.localTime[0]}/{this.props.localTime[1]}/{this.props.localTime[2]}</p>
+                <p id="current-time">as of {this.props.localTime[0]}/{this.props.localTime[1]}/{this.props.localTime[2]} at {this.props.localTime[3]}:{this.props.localTime[4]}</p>
                 <p id="current-temp"></p>
                 <p id="weather-description"></p>
                 <p id="local-weather-info"></p>
