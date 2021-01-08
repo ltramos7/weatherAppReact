@@ -69,8 +69,8 @@ export default class App extends Component {
     return (
       <div className="App">
         <Header/>
-        <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime} toggleLoadingStatus={this.toggleLoadingStatus}/>
-        {this.state.weatherCardStatus ? <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime} toggleLoadingStatus={this.toggleLoadingStatus()}/>  : null}
+        <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime} />
+        {this.state.weatherCardStatus ? <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime} />  : null}
       </div>
     )
   }
