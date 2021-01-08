@@ -65,24 +65,6 @@ export default class App extends Component {
     })
   }
 
-  // resetLoadingStatus = () => {
-  //   console.log("resetLoadingStatus function reached")
-  //   this.setState({
-  //     loadingStatus: false
-  //   })
-
-  // }
-
-
-  // place toggleLoadingStatus in componendDidUpdate() with a conditional statement
-  toggleLoadingStatus = () =>{
-    console.log(!this.state.loadingStatus)
-    // this.setState({
-    //   loadingStatus: !this.state.loadingStatus
-    // })
-    
-  }
-
   render() {
     console.log("loading Status: ", this.state.loadingStatus)
     return (
