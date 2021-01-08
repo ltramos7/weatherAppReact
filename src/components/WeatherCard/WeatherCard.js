@@ -4,6 +4,7 @@ import style from './WeatherCard.module.css'
 export default class WeatherCard extends Component {
     
     render() {
+        let icon = this.props.localWeatherInfo.weather[0].icon
         return (
             <div className={style.localWeatherInfoContainer}>
                 <h2 id="city-location">{this.props.localWeatherInfo.name} Weather</h2>
@@ -11,6 +12,7 @@ export default class WeatherCard extends Component {
                 <p id="current-temp">Currently {Math.round(this.props.localWeatherInfo.main.temp)}° F and feels like {Math.round(this.props.localWeatherInfo.main.feels_like)}° F</p>
                 <p id="weather-description">{this.props.localWeatherInfo.weather[0].description}</p>
                 <p id="local-weather-info">Hi: {Math.round(this.props.localWeatherInfo.main.temp_max)}° F / Low: {Math.round(this.props.localWeatherInfo.main.temp_min)}° F</p>
+                <img src={`https://openweathermap.org/img/wn/${icon}@2x.png`} alt=""/>
             </div>
         )
     }
