@@ -41,7 +41,7 @@ export default class App extends Component {
 
   fetchLocationWeather = (latitude, longitude) => {
 
-    fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=aa662ed0d71b09fd88e5880bc7bf3617`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=aa662ed0d71b09fd88e5880bc7bf3617`)
     .then(resp => resp.json() )
     .then(data => {
       this.setState({
