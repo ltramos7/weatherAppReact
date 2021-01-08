@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
 
-
 import Header from './components/Header/Header'
 import ButtonArea from './components/ButtonArea/ButtonArea'
 import WeatherCard from './components/WeatherCard/WeatherCard'
@@ -71,7 +70,6 @@ export default class App extends Component {
       <div className="App">
         <Header/>
         <ButtonArea getCurrentWeather={this.getCurrentWeather} getLocalTime={this.getLocalTime} localTime={this.state.localTime} toggleLoadingStatus={this.toggleLoadingStatus}/>
-        {/* {this.state.loadingStatus ? <p>Loading...</p> : null}  */}
         {this.state.weatherCardStatus ? <WeatherCard localWeatherInfo={this.state.localWeatherInfo} localTime={this.state.localTime} toggleLoadingStatus={this.toggleLoadingStatus()}/>  : null}
       </div>
     )

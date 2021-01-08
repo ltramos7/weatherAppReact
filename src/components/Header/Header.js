@@ -8,7 +8,6 @@ export default class Header extends Component {
         return (
             <div>
                 <h1 className={style.welcomeTitle}>Welcome To WeatherApp!</h1>
-                
             </div>
         )
     }

@@ -4,12 +4,6 @@ import style from './WeatherCard.module.css'
 export default class WeatherCard extends Component {
     
     render() {
-           
-        // console.log("main temp: ",this.props.localWeatherInfo.main.temp,
-        //     "feels like: ",this.props.localWeatherInfo.main.feels_like,
-        //     "min: ", this.props.localWeatherInfo.main.temp_min,
-        //     "max: ", this.props.localWeatherInfo.main.temp_max,
-        //     "des: ", this.props.localWeatherInfo.weather[0].description)
         return (
             <div className={style.localWeatherInfoContainer}>
                 <h2 id="city-location">{this.props.localWeatherInfo.name} Weather</h2>
