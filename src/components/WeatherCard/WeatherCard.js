@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './WeatherCard.css'
 
 export default class WeatherCard extends Component {
     
@@ -10,7 +11,7 @@ export default class WeatherCard extends Component {
         //     "max: ", this.props.localWeatherInfo.main.temp_max,
         //     "des: ", this.props.localWeatherInfo.weather[0].description)
         return (
-            <div id="local-weather-info-container">
+            <div className="local-weather-info-container">
                 <h2 id="city-location">{this.props.localWeatherInfo.name} Weather</h2>
                 <p id="current-time">as of {this.props.localTime[0]}/{this.props.localTime[1]}/{this.props.localTime[2]} at {this.props.localTime[3]}:{this.props.localTime[4]}</p>
                 <p id="current-temp">Currently {this.props.localWeatherInfo.main.temp}° F and feels like {this.props.localWeatherInfo.main.feels_like}° F</p>
