@@ -29,11 +29,11 @@ export default class App extends Component {
     }
     
     const errorCallback = () => {
-      console.log("Unable to retrieve your location.")
+      alert("Unable to retrieve your location.")
     }
     
     if(!navigator.geolocation){
-      console.log("Geolocation is not supported by your browswer.");
+      alert("Geolocation is not supported by your browswer.");
     } else {
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
     }
@@ -65,7 +65,7 @@ export default class App extends Component {
   }
 
   render() {
-    console.log("loading Status: ", this.state.loadingStatus)
+
     return (
       <div className="App">
         <Header/>
