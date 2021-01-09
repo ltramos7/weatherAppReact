@@ -1,6 +1,9 @@
 .welcomeTitle{
-    margin-top: 0;
-    margin-left: 4rem;
-    padding-top: 2rem;
-  }
+    color: rgba(255, 255, 255, 0.767);
+}
   
+h1{
+  margin-top: 0;
+  padding-top: 2rem;
+  text-align: center;  
+}
