@@ -6,8 +6,8 @@ import style from './Header.module.css'
 export default class Header extends Component {
     render() {
         return (
-            <div>
-                <h1 className={style.welcomeTitle}>Welcome To WeatherApp!</h1>
+            <div className={style.welcomeTitle}>
+                <h1>'Tis My Weather App</h1>
             </div>
         )
     }
