@@ -1,10 +1,20 @@
 
 .localWeatherInfoContainer{
-    margin-top: 2rem;
-    margin-right: 20rem;
-    margin-left: 4rem;
-    padding: 1rem;
+    display: flex;
+    width: 35rem;
+    margin: 2rem auto;
+    padding: 1rem 2rem; 
     background-color: rgba(255, 255, 255, 0.082);
     border-radius: 6px;
     box-shadow: 0 0 12px 0 rgba(0,0,0,.2);
 }
+
+.weatherIcon{
+    margin: auto
+}
+
+.weatherIcon p{
+    margin-top: 0;
+    padding-top: 0;
+}
+
